@@ -1,5 +1,6 @@
 // diseñar las rutas con express
 import { Router } from "express";
+import usersRoutes from "./users.routes.js";
 
 //invocar las herramientas que nos provee router, y las guarda en el objeto router
 const router = Router()
@@ -13,8 +14,10 @@ const router = Router()
 //directorio de todas las rutas
 //contruir la ruta: http://localhost:3000/api/servicios
 // router.use('/servicios',serviciosRoutes)
+
 //contruir la ruta: http://localhost:3000/api/usuarios
-// router.use('/usuarios',usuariosRoutes)
+router.use('/usuarios',usersRoutes)
+
 //contruir la ruta: http://localhost:3000/api/pagos
 // router.use('/pagos',pagosRoutes)
 
