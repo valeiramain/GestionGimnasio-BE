@@ -11,6 +11,7 @@ export const crearUsuario = async (req, res) => {
     // req.body.password = passwordHasheado;
 
     const usuarioNuevo = new User(req.body);
+    usuarioNuevo.fechaAltaPlan = new Date();
     await usuarioNuevo.save();
     res.status(201).send("Usuario creado correctamente");
   } catch (error) {

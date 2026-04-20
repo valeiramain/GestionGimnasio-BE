@@ -48,6 +48,7 @@ const userSchema = new Schema(
     },
     plan: {
       type: String,
+      required: true,
       enum: ["ninguno", "musculacion", "clases", "full"],
       default: "ninguno",
     },
@@ -57,6 +58,7 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
+      required: true,
       enum: ["admin", "user"],
       default: "user",
     },
