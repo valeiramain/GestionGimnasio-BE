@@ -1,5 +1,7 @@
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
+
+// jwt se usa en LOGIN
 import generarJWT from "../helpers/generarJWT.js";
 
 export const crearUsuario = async (req, res) => {
@@ -17,5 +19,21 @@ export const crearUsuario = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Ocurrió un error al intentar crear usuario");
+  }
+};
+
+
+export const listarUsurios = async (req, res) => {
+  try {
+    const listaUsuarios = await User.find();
+    if (listaUsuarios.length === 0) {
+      return res.status(404).json({ mensaje: "No hay usuarios registrados" });
+    }
+    res.status(200).json(listaUsuarios);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ mensaje: "Ocurrió un error al intentar listar los usuarios" });
   }
 };
